@@ -1,6 +1,5 @@
 # 605. Can Place Flowers
 
-
 class Solution:
     def canPlaceFlowers(self, flowerbed, n):
         # Loop through the flowerbed array
