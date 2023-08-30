@@ -1,27 +1,19 @@
 #1207. Unique Number of Occurrences
 
-# Import the collections module to use the Counter class
-import collections
-
-# Define a class named Solution
 class Solution:
-  # Define a method named uniqueOccurrences that takes a list 'arr' as input
-  def uniqueOccurrences(self, arr):
-    # Create a Counter object to count the occurrences of each element in 'arr'
-    count = collections.Counter(arr)
-    
-    # Create an empty set to store unique occurrences
-    occurrences = set()
+    def uniqueOccurrences(self, arr):
+        nums = []          # List to store unique numbers encountered
+        occurrences = []   # List to store unique occurrences
+        
+        for num in arr:    # Iterate through the input array
+            if num not in nums:  # Check if the number is encountered for the first time
+                occurrence = arr.count(num)  # Count how many times the current number appears in the array
+                
+                if occurrence not in occurrences:  # Check if this occurrence count is unique
+                    occurrences += [occurrence]   # If unique, add the occurrence count to the list
+                    nums += [num]                 # Also add the number to the list of unique numbers
+                else:
+                    return False  # If occurrence count is not unique, return False
+                
+        return True  # If all numbers have unique occurrence counts, return True
 
-    # Loop through the values (occurrence counts) in the Counter object
-    for value in count.values():
-      # Check if the value (occurrence count) is already in the 'occurrences' set
-      if value in occurrences:
-        # If a value is already present, it means a duplicate occurrence count exists
-        return False
-      
-      # If the value is not already in 'occurrences', add it to the set
-      occurrences.add(value)
-
-    # If all occurrence counts are unique, return True
-    return True
