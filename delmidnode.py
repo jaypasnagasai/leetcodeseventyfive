@@ -1,26 +1,22 @@
 #2095. Delete the Middle Node of a Linked List
 
+import math
 class Solution:
-    def deleteMiddle(self, head):  
-        # Edge case: return None if there is only one node.
-        if head.next == None:
+    def deleteMiddle(self, head):
+        c=1
+        temp=head
+        while temp.next!=None:
+            temp=temp.next
+            c+=1
+        m=c//2
+        if m==0:
             return None
-        
-        count = 0
-        p1 = p2 = head
-        
-        # First pass, count the number of nodes in the linked list using 'p1'.
-        while p1:
-            count += 1
-            p1 = p1.next
-        
-        # Get the index of the node to be deleted.
-        middle_index = count // 2
-        
-        # Second pass, let 'p2' move toward the predecessor of the middle node.
-        for _ in range(middle_index - 1):
-            p2 = p2.next
-        
-        # Delete the middle node and return 'head'.
-        p2.next = p2.next.next
+        c,temp=1,head
+        while c!=m:
+            temp=temp.next
+            c+=1
+        if temp.next.next==None:
+            temp.next=None
+        else:
+            temp.next=temp.next.next
         return head
