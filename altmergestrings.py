@@ -1,3 +1,5 @@
+# 1431. Kids With the Greatest Number of Candies
+
 class Solution(object):
     def mergeAlternately(self, word1, word2):
         # Get the lengths of both input words
