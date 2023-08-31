@@ -1,5 +1,4 @@
 #2462. Total Cost to Hire K Workers
-=
 
 class Solution:
     def totalCost(self, costs, k, candidates):
